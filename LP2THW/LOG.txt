@@ -1,0 +1,2 @@
+20171023 将文件夹Python_LP2THW从MAC中拷贝到PC笔记本中。
+20171023 中午在会议室试图装上Eclipse+PyDev但是失败了，这个新版的Eclipse找不到Help选项。又试图按照《LPTHW》作者的说法，安装了gedit软件，大

@@ -1,0 +1,29 @@
+20171024 上午发现ex16文件中用中文注释，不能运行。于是，将它单独摘出来，列在下面：
+#从本文件开始，我们的命名中不再使用py2这个关键词，直接使用教材中提到的命名方法。
+# 以下是重要的一些命令：
+close- 关闭文件。同：文件》保存。。
+read-读取文件内容，你可以把结果赋值给一个变量。
+readline-读取文本文件中的一行
+truncate-清空文件，小心使用这个命令。
+write(stuff)- 将stuff写入文件。
+上面这些命令，有的需要一些输入参数。
+write-需要接收一个字符串作为参数，从而将该字符串写入文件。
+—
+'''
+----运行的结果如下----
+itifadeMacBook-Pro:~ yyy$ python  Documents/Python_LP2THW/ex16.py Documents/Python_LP2THW/test.txt
+We're going to erase 'Documents/Python_LP2THW/test.txt'.
+If you don't want that,hit CTRL-C(^C).
+If you do want that,hit RETURN.
+?yes
+Opening the file...
+Truncating the file.Goodbye!
+Now I'm going to ask you for three lines.
+line 1:How old are you?
+line 2:How much do you earn?
+line 3:Do you have children?
+I'm going to write these to the file.
+And finally,we close it.
+itifadeMacBook-Pro:~ yyy$ 
+----运行的结果如上---
+'''

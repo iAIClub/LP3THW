@@ -1,12 +1,58 @@
-# 下列代码是用于计算WQM的T和C的N值
+# 下列代码是用于计算WQM的T和C的N值----
 import sys
 from sympy import *
-from sympy.abc import x
-x, TA0, TA1, TA2, TA3, T1, T2 ,T3 ,T4 ,T5 ,T6, T7 ,T8 ,T ,d ,d1 ,d2, d3, d4 ,N, G ,H ,hh,II, J,WBOTC ,Tcor,C ,C1, C2, C3 ,C4 ,C5 ,C6, C7, C8 ,DDL, p, p1, p2, p3 ,p4=symbols('x TA0 TA1 TA2 TA3 T1 T2 T3 T4 T5 T6 T7 T8 T d d1 d2 d3 d4 N G H hh II J WBOTC Tcor C C1 C2 C3 C4 C5 C6 C7 C8 DDL p p1 p2 p3 p4')
-sys.setrecursionlimit(50000)# 增加递归深度设置
-#sympy.setrecursionlimit(50000)# 增加递归深度设置，sympy没有定义？报错，不能递归。
+from sympy.abc import x,y,a,b,c,d,e,f,g,h,i,j,k
+x = symbols('x')#本案例中N值设置为x。
+TA0=symbols('TA0')
+TA1=symbols('TA1')
+TA2=symbols('TA2')
+TA3=symbols('TA3')
 
-# x = symbols('x')#本案例中N值设置为x。
+T1=symbols('T1')
+T2=symbols('T2')
+T3=symbols('T3')
+T4=symbols('T4')
+T5=symbols('T5')
+T6=symbols('T6')
+T7=symbols('T7')
+T8=symbols('T8')
+T=symbols('T')
+
+d=symbols('d')
+d1=symbols('d1')
+d2=symbols('d2')
+d3=symbols('d3')
+N=symbols('N')
+
+G=symbols('G')
+H=symbols('H')
+II=symbols('II')
+J=symbols('J')
+WBOTC=symbols('hh')
+Tcor=symbols('Tcor')
+
+C1=symbols('C1')
+C2=symbols('C2')
+C3=symbols('C3')
+C4=symbols('C4')
+C5=symbols('C5')
+C6=symbols('C6')
+C7=symbols('C7')
+C8=symbols('C8')
+C=symbols('C')
+
+DDL=symbols('DDL')
+hh=symbols('hh')
+
+p1=symbols('p1')
+p2=symbols('p2')
+p3=symbols('p3')
+p4=symbols('p4')
+p=symbols('p')
+
+
+
+
 # ----下面是一个接受用户输入，给4个系数赋值的过程---
 print ('''
 -------------------- 准备计算温度的N值 ------------------
@@ -25,16 +71,16 @@ print ('''
 
 # 接受一组8个温度点输入。
 
-T1,T2,T3,T4,T5,T6,T7,T8 = map(float,input("\n请输入：>").split())#此处 T1是float
-T = T1,T2,T3,T4,T5,T6,T7,T8 #将数组赋值给T，T是tuple
+T1,T2,T3,T4,T5,T6,T7,T8 = map(float,input("\n请输入：>").split())
+T = T1,T2,T3,T4,T5,T6,T7,T8 #将数组赋值给T
 
 #-----------下面是利用一个循环依次计算并打出N值---------------------------
 print ("\n--------------------温度的N值为:--------------------")
 
 for i in range (0,8):
-    d = solveset(TA0 + TA1 *x + TA2*(x **2) +TA3 *(x **3) - 1/(273.15+T[i]), x) # 核心计算公式。使用T[i]从T这个数组中按照索引取出数据。
-    d1,d2,d3 = d # 将数组d进行切片。d 的数据类型是<class 'sympy.sets.sets.FiniteSet'>
-    N = 2.718281825 **d1 #转换出N值,d1的数据类型是<class 'sympy.core.numbers.Float'>
+    d = solve( [TA0 + TA1 *x + TA2*(x **2) +TA3 *(x **3) - 1/(273.15+T[i])], [x]) # 核心计算公式。使用T[i]从T这个数组中按照索引取出数据。
+    d1,d2,d3 = d # 将数组d进行切片。
+    N = 2.718281825 **d1 #转换出N值
     print (round(N))# "N值为："
 
 print ("\n-------------------- 计算结束 ---------------------")
@@ -74,3 +120,4 @@ print ("\n*********************************** 电导率的N值计算结束（THE
 
 # 本代码于20180227创建，并调试通过。
 # 20180605上午增加了sys.setrecursionlimit和sympy的递归深度测试。
+# 210800606重写 发现到了83行 N = 2.718281825 **d1，由于d1的数据类型是tuple，这里不支持乘方。

@@ -6,7 +6,7 @@ This repository is a public of code on the book of 'Learn Python The Hard Way'
 [pdf 下载](https://github.com/iAIClub/LP3THW/tlcl-the-linux-commander-line-cn.pdf)
 
 ## 代码
-
+- [代码 1 仓库](https://github.com/iAIClub/LP3THW/tree/master/automate_online-materials)
 
 ## Log
 2019-11-24 小焱创建。
